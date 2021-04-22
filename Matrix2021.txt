@@ -1,0 +1,118 @@
+You are given an N × N matrix in which every cell is colored black or white. Columns are numbered from 0 to N-1 (from left to right). This coloring is represented by a non-empty array of integers A. If the K-th number in the array is equal to X then the X lowest cells in the K-th column of the matrix are black. The rest of the cells in the K-th column are white. The task is to calculate the side length of the biggest black square (a square containing only black cells).
+
+Write a function:
+
+class Solution { public int solution(int[] A); }
+
+that, given an array of integers A of length N representing the coloring of the matrix, returns the side length of the biggest black square.
+
+Examples:
+
+1. Given A = [1, 2, 5, 3, 1, 3], the function should return 2. For example, the black square of side 2 contains the two lowest rows of the 1st and 2nd columns (counting from 0).
+
+| | | | | | |
+| | |-| | | |
+| | |-| | | |
+| | |-|-| |-|
+| |-|-|-| |-|
+|-|-|-|-|-|-|
+The picture describes the first example test [1, 2, 5, 3, 1, 3].
+
+2. Given A = [3, 3, 3, 5, 4], the function should return 3. For example, the biggest black square has side 3 and contains the three lowest rows of the last three columns.
+
+| | | |-| |
+| | | |-|-|
+|-|-|-|-|-|
+|-|-|-|-|-|
+|-|-|-|-|-|
+
+The picture describes the second example test [3, 3, 3, 5, 4].
+
+3. Given A = [6, 5, 5, 6, 2, 2], the function should return 4. The biggest black square has side 4 and contains the four lowest rows of the first four columns.
+
+|-| | |-| | |
+|-|-|-|-| | |
+|-|-|-|-| | |
+|-|-|-|-| | |
+|-|-|-|-|-|-|
+|-|-|-|-|-|-|
+The picture describes the third example test [6, 5, 5, 6, 2, 2].
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+each element of array A is an integer within the range [1..N].
+Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+
+
+
+-----------
+
+
+            //check vertices first
+            int fnvalue = A.Length;
+            int vercheck = fnvalue - 1;
+            int rowstart = 1;
+            int Aver; //always has column value 0 and row 0,but less than (fnvalue-vercheck)
+            int Bver; //always had column value 0 and row vercheck,vercheck+rowstart
+            int Cver; //always has column value as varcheck and row range[vercheck, (vercheck+rowstart) but <fnvalue-1] 
+            int Dver; //always has column value as varcheck and row range [rowstart,vercheck+rowstart but < fnvalue-1
+            //while (vercheck > 0)
+            //{
+
+
+            while (fnvalue - vercheck > 0) ;
+            {
+                do
+                {
+                    Aver = rowstart-1;
+                    Bver = vercheck;
+                    Cver = vercheck;
+                    Dver = rowstart-1;
+                    bool vercheckpass = false;
+                    if ((square[Aver, 0] == 'B') && (square[Bver, 0] == 'B') && (square[Cver, vercheck] == 'B') && (square[Dver, vercheck] == 'B'))
+                    {
+                        vercheckpass = true; break;
+                    }//high order fnvalue
+                    vercheck--; 
+                } while ((fnvalue-vercheck+rowstart)>1);
+            } 
+            // while ((vercheck > 0) && (vercheck < (A.Length - 1))) ;
+
+
+            //while (vercheck > 0) && (vercheck < (A.Length-1))
+            //{
+            //    bool vercheckpass = false;
+
+            //    if ((square[rowstart, 0] == 'B') && (square[vercheck, 0] == 'B') && (square[vercheck, vercheck] == 'B') && (square[rowstart, vercheck] == 'B'))
+            //    {
+            //        vercheckpass = true; break;
+            //    }//secondtry
+            //    else
+            //    {
+            //        rowstart++; vercheck--;
+            //    }
+
+            //}//while
+
+        }//else
+
+            //int counter = 0;
+            //while(counter < fnvalue)
+            //{
+            //    for (int c=0; c< fnvalue; c++)
+            //    {
+            //        opval = (square[counter, c] == ' ') ? 'O' : square[counter, c];
+            //        Console.Write("\n R: " + counter +" C: " + c + "->" + opval);
+            //        if (square[counter,c] != 'B')
+            //        {
+            //            fnvalue--;
+            //            Console.Write("\n"+fnvalue + "Square doesnt exist and R: " + counter + " C: " + counter + "->" + opval);
+
+            //            break;
+            //        }//fail case
+            //    }//for
+            //    counter++;
+            //}//while cond
+
+            Console.WriteLine("\ncounter value is : " + counter);

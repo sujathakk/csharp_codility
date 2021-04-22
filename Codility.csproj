@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!--<Compile Remove="Program.cs" />-->
+  
+    <Compile Remove="Cakelayer.cs" />
+     <Compile Remove="Matrix_old.cs" />
+	  <Compile Remove="Matrix.cs" />
+    <Compile Remove="PetsandToys.cs" />
+	  <!-->Compile Remove="PetsandToys_old.cs" /-->
+    <Compile Remove="Pets_Toys.cs" />
+	  
+  </ItemGroup>
+
+</Project>
